@@ -23,8 +23,8 @@ public class BiodataController {
     @PostMapping("/save")
     public DefaultResponse<BiodataDto> saveBiodata(@RequestBody BiodataDto biodataDto) {
         BiodataDto b = new BiodataDto();
-        biodataDto.setNama(biodataDto.getNama());
-        biodataDto.setAlamat(biodataDto.getAlamat());
+        b.setNama(biodataDto.getNama());
+        b.setAlamat(biodataDto.getAlamat());
         return DefaultResponse.ok(b);
     }
 }
