@@ -1,9 +1,7 @@
 package id.arnugroho.springbootservice.controller;
 
 import id.arnugroho.springbootservice.model.dto.BiodataDto;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import id.arnugroho.springbootservice.model.DefaultResponse;
 
 @RestController
@@ -20,5 +18,13 @@ public class BiodataController {
     @GetMapping("/geterror")
     public DefaultResponse<BiodataDto> getBiodataError() {
         return DefaultResponse.error("Data diri sudah ada di aplikasi");
+    }
+
+    @PostMapping("/save")
+    public DefaultResponse<BiodataDto> saveBiodata(@RequestBody BiodataDto biodataDto) {
+        BiodataDto b = new BiodataDto();
+        biodataDto.setNama(biodataDto.getNama());
+        biodataDto.setAlamat(biodataDto.getAlamat());
+        return DefaultResponse.ok(b);
     }
 }
