@@ -1,14 +1,21 @@
 package id.arnugroho.springbootservice.controller;
 
 import id.arnugroho.springbootservice.model.dto.BiodataDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import id.arnugroho.springbootservice.model.DefaultResponse;
+
+import java.util.Date;
 
 @RestController
 @RequestMapping("/biodata")
 public class BiodataController {
+    private final Logger log = LoggerFactory.getLogger(getClass());
+
     @GetMapping("/get")
     public DefaultResponse<BiodataDto> getBiodata() {
+        log.info("get biodata : " + new Date());
         BiodataDto biodataDto = new BiodataDto();
         biodataDto.setNama("akbar");
         biodataDto.setAlamat("bogor");
